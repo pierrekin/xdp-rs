@@ -82,7 +82,7 @@ pub fn create_socket(
     };
     let umem = setup_umem(raw_fd, config.as_ref())?;
 
-    RingType::Fill.set_size(raw_fd, tx_ring_size)?;
+    RingType::Fill.set_size(raw_fd, rx_ring_size)?;
     RingType::Completion.set_size(raw_fd, tx_ring_size)?;
     if tx_ring_size > 0 {
         RingType::Tx.set_size(raw_fd, tx_ring_size)?;
